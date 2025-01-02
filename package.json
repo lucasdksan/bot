@@ -2,9 +2,15 @@
   "name": "bot",
   "version": "1.0.0",
   "description": "Projeto para criar um simples bot para discord.",
-  "main": "index.js",
+  "main": "src/server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsnd --transpile-only --ignore-watch node_nodules --respawn src/server.ts",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc",
+    "start": "node dist/server.js",
+    "start:prod": "npm run build && npm run start",
+    "watch": "tsc --watch",
+    "test": "npx jest"
   },
   "keywords": [],
   "author": "",
