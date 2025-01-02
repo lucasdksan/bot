@@ -8,6 +8,8 @@ export type TaskProps = {
     description: string;
     code: string;
     estimated: Date;
+    run: boolean;
+    step: "Blocked";
     createdAt?: Date;
     updatedAt?: Date;
     createdBy?: string;
@@ -34,6 +36,10 @@ export class TaskEntity extends Entity<TaskProps> {
         TaskEntity.validate(updatedProps);
 
         this.setProps(updatedProps);
+    }
+
+    startTask(){
+        
     }
 
     static validate(props: TaskProps) {

@@ -6,6 +6,8 @@ type Props = {
     description?: string;
     code?: string;
     estimated?: Date;
+    run?: boolean;
+    step?: "Blocked";
     createdAt?: Date;
     updatedAt?: Date;
     createdBy?: string;
@@ -15,6 +17,8 @@ type Props = {
 export function TaskGenerate(props: Props): TaskProps{
     return{
         title: props.title ?? faker.commerce.productName(),
+        run: props.run ?? faker.datatype.boolean(),
+        step: props.step ?? faker.helpers.arrayElement(["Blocked"]),
         description: props.description ?? faker.commerce.productDescription(),
         estimated: props.createdAt ?? new Date(),
         code: props.code ?? faker.commerce.isbn(),
